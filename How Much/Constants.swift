@@ -1,5 +1,5 @@
 //
-//  Storage.swift
+//  Constants.swift
 //  How Much
 //
 //  Created by Gunnar Hafdal on 02/07/2018.
