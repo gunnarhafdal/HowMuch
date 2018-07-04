@@ -13,7 +13,7 @@
         <!--Conversion-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Conversion" id="BYZ-38-t0r" customClass="ConversionViewController" customModule="How_Much" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="conversion" title="Conversion" id="BYZ-38-t0r" customClass="ConversionViewController" customModule="How_Much" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                 <rect key="frame" x="93" y="137" width="211" height="39"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad" keyboardAppearance="alert" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                 <connections>
                                     <action selector="dollarValueChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="LfR-im-eaI"/>
                                 </connections>
@@ -51,18 +51,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-hG-ehX">
-                                <rect key="frame" x="129" y="541" width="62" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Updating…">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="disabled" title="Updating…"/>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI0-IN-eIy">
+                                <rect key="frame" x="16" y="281" width="44" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKv-GD-Q1V">
+                                <rect key="frame" x="282" y="54" width="22" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="updateCurrency:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xYV-qs-RKM"/>
+                                    <segue destination="KkJ-xo-Ta4" kind="show" id="pUs-6L-luQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -74,11 +73,13 @@
                             <constraint firstItem="VQ5-AG-Q4E" firstAttribute="leading" secondItem="Lrf-sz-eeu" secondAttribute="trailing" constant="8" id="7hz-g9-GV4"/>
                             <constraint firstItem="HlH-CT-8bO" firstAttribute="top" secondItem="VQ5-AG-Q4E" secondAttribute="bottom" constant="30" id="8OL-Uy-mbW"/>
                             <constraint firstItem="ni6-yH-c6w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BLQ-Gt-RvA"/>
-                            <constraint firstItem="fLh-hG-ehX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="IYz-78-fz9"/>
+                            <constraint firstItem="LI0-IN-eIy" firstAttribute="top" secondItem="ni6-yH-c6w" secondAttribute="bottom" constant="36" id="EH2-5E-I12"/>
+                            <constraint firstItem="lKv-GD-Q1V" firstAttribute="centerY" secondItem="ul2-qo-RkZ" secondAttribute="centerY" id="QQV-xz-054"/>
+                            <constraint firstItem="LI0-IN-eIy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SAV-uq-nDr"/>
                             <constraint firstItem="ni6-yH-c6w" firstAttribute="centerY" secondItem="HlH-CT-8bO" secondAttribute="centerY" id="Zxd-br-UZg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lKv-GD-Q1V" secondAttribute="trailing" constant="16" id="dUc-50-x4Y"/>
                             <constraint firstItem="VQ5-AG-Q4E" firstAttribute="top" secondItem="ul2-qo-RkZ" secondAttribute="bottom" constant="46" id="f4c-Cq-zQ8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ul2-qo-RkZ" secondAttribute="trailing" constant="16" id="lrJ-lh-ZUM"/>
-                            <constraint firstItem="fLh-hG-ehX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ndN-FI-FmB"/>
                             <constraint firstItem="Lrf-sz-eeu" firstAttribute="centerY" secondItem="VQ5-AG-Q4E" secondAttribute="centerY" id="pWP-7y-gAK"/>
                             <constraint firstItem="ul2-qo-RkZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="rfp-wk-mQK"/>
                             <constraint firstItem="ul2-qo-RkZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="uJv-gi-pVh"/>
@@ -88,9 +89,10 @@
                     </view>
                     <connections>
                         <outlet property="dollarField" destination="VQ5-AG-Q4E" id="EGn-Cr-8Ky"/>
+                        <outlet property="fromCurrencyLabel" destination="Lrf-sz-eeu" id="p1m-OT-JVj"/>
                         <outlet property="kronorLabel" destination="HlH-CT-8bO" id="J9A-MJ-GfK"/>
-                        <outlet property="updateLabel" destination="fLh-hG-ehX" id="ffH-us-Lio"/>
-                        <outlet property="updateLabelBottomConstraint" destination="IYz-78-fz9" id="rGd-pa-YyN"/>
+                        <outlet property="rateLabel" destination="LI0-IN-eIy" id="u4X-9v-ey7"/>
+                        <outlet property="toCurrencyLabel" destination="ni6-yH-c6w" id="5ip-9P-BDJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,7 +102,7 @@
         <!--Settings-->
         <scene sceneID="eHV-jX-zaL">
             <objects>
-                <viewController title="Settings" id="KkJ-xo-Ta4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" title="Settings" id="KkJ-xo-Ta4" customClass="SettingsViewController" customModule="How_Much" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n89-pa-WZh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,15 +113,60 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnH-1e-8xZ">
+                                <rect key="frame" x="16" y="137" width="75" height="30"/>
+                                <state key="normal" title="From: USD"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUL-Us-HJL">
+                                <rect key="frame" x="16" y="180" width="55" height="30"/>
+                                <state key="normal" title="To: DKK"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8j-GQ-2Hr">
+                                <rect key="frame" x="16" y="233" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwj-6E-Xls">
+                                <rect key="frame" x="16" y="518" width="57" height="30"/>
+                                <state key="normal" title="Go back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="KkJ-xo-Ta4" eventType="touchUpInside" id="KCT-dQ-Lb7"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fX-jv-gMz">
+                                <rect key="frame" x="0.0" y="218" width="320" height="162"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="u5n-Ly-8be"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ndt-oY-ChM" firstAttribute="trailing" secondItem="KUk-jP-aJb" secondAttribute="trailing" constant="16" id="60r-mg-fqx"/>
+                            <constraint firstItem="BnH-1e-8xZ" firstAttribute="top" secondItem="KUk-jP-aJb" secondAttribute="bottom" constant="46" id="Cw4-bw-hW2"/>
+                            <constraint firstItem="3fX-jv-gMz" firstAttribute="top" secondItem="eUL-Us-HJL" secondAttribute="bottom" constant="8" id="IKf-aG-DNt"/>
                             <constraint firstItem="KUk-jP-aJb" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="OsH-9R-AJX"/>
+                            <constraint firstItem="3fX-jv-gMz" firstAttribute="trailing" secondItem="Ndt-oY-ChM" secondAttribute="trailing" id="RDi-L5-EEY"/>
+                            <constraint firstItem="eUL-Us-HJL" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="b4n-Xv-A4n"/>
                             <constraint firstItem="KUk-jP-aJb" firstAttribute="top" secondItem="Ndt-oY-ChM" secondAttribute="top" constant="20" id="gP0-YQ-vLm"/>
+                            <constraint firstItem="3fX-jv-gMz" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" id="jUp-ht-DKJ"/>
+                            <constraint firstItem="Ndt-oY-ChM" firstAttribute="bottom" secondItem="Hwj-6E-Xls" secondAttribute="bottom" constant="20" id="kPF-ub-A8c"/>
+                            <constraint firstItem="Hwj-6E-Xls" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="oJy-k3-gbj"/>
+                            <constraint firstItem="BnH-1e-8xZ" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="rCw-5K-soo"/>
+                            <constraint firstItem="eUL-Us-HJL" firstAttribute="top" secondItem="BnH-1e-8xZ" secondAttribute="bottom" constant="13" id="vir-sI-ahZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ndt-oY-ChM"/>
                     </view>
+                    <connections>
+                        <outlet property="currencyPicker" destination="3fX-jv-gMz" id="Pgt-1q-qgU"/>
+                        <outlet property="fromButton" destination="BnH-1e-8xZ" id="Yqf-uG-bcp"/>
+                        <outlet property="goBackButton" destination="Hwj-6E-Xls" id="BJo-2A-d0k"/>
+                        <outlet property="toButton" destination="eUL-Us-HJL" id="gpJ-h3-qJM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNT-Zd-mEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

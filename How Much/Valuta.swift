@@ -12,20 +12,32 @@ struct Valuta {
     
     let apiBase = "https://www.alphavantage.co"
     let apiKey = "GBJIFQOH76BTIT9Y"
+    let apiFunction = "CURRENCY_EXCHANGE_RATE"
     
     func update(forceUpdate: Bool = false, completion: @escaping () -> Void) {
         let defaults = UserDefaults.standard
-        let lastUpdated = defaults.double(forKey: defaultsKeys.updateTime)
+        let lastUpdated = defaults.double(forKey: defaultsKeys.timeWhenLastUpdated)
         
         let timeNow = Date().timeIntervalSince1970 as Double
         
-        guard forceUpdate == true || timeNow - lastUpdated > 21600 else {
+        guard forceUpdate == true || timeNow - lastUpdated > 10 else { // default: 21600
             print("cache fresh from less then 6 hours ago")
-            completion()
+            completion() //we run the completion if the data is cached
             return
         }
         
-        let apiEndpoint: String = "\(apiBase)/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=DKK&apikey=\(apiKey)"
+        guard let fromCurrency = defaults.string(forKey: defaultsKeys.fromCurrency) else {
+            print("Error: Cannot get from currency")
+            return
+        }
+        
+        guard let toCurrency = defaults.string(forKey: defaultsKeys.toCurrency) else {
+            print("Error: Cannot get to currency")
+            return
+        }
+        
+        let apiEndpoint: String = "\(apiBase)/query?function=\(apiFunction)&from_currency=\(fromCurrency)&to_currency=\(toCurrency)&apikey=\(apiKey)"
+        
         guard let url = URL(string: apiEndpoint) else {
             print("Error: cannot create URL")
             return
@@ -79,7 +91,7 @@ struct Valuta {
                 
                 // we store the time now to check for updating last time
                 let now = Date()
-                defaults.set(now.timeIntervalSince1970 as Double, forKey: defaultsKeys.updateTime)
+                defaults.set(now.timeIntervalSince1970 as Double, forKey: defaultsKeys.timeWhenLastUpdated)
                 
                 completion()
                 

@@ -8,7 +8,9 @@
 
 struct defaultsKeys {
     static let currencyRate = "currencyRate"
-    static let updateTime = "timeWhenLastUpdated"
+    static let timeWhenLastUpdated = "timeWhenLastUpdated"
+    static let fromCurrency = "fromCurrency"
+    static let toCurrency = "toCurrency"
 }
 
 

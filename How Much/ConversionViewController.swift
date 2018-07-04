@@ -12,15 +12,15 @@ class ConversionViewController: UIViewController {
 
     @IBOutlet weak var dollarField: UITextField!
     @IBOutlet weak var kronorLabel: UILabel!
-    @IBOutlet weak var updateLabel: UIButton!
-    @IBOutlet weak var updateLabelBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var fromCurrencyLabel: UILabel!
+    @IBOutlet weak var toCurrencyLabel: UILabel!
     
     var currencyRate: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(ConversionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ConversionViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         NotificationCenter.default.addObserver(
             self,
@@ -28,11 +28,18 @@ class ConversionViewController: UIViewController {
             name: NSNotification.Name(rawValue: "valutaUpdated"),
             object: nil)
         
-        // Do any additional setup after loading the view, typically from a nib.
         dollarField.attributedPlaceholder = NSAttributedString(string: "Amount",
                                                                attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
         Valuta().update(completion: updateCompletion)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let defaults = UserDefaults.standard
+        fromCurrencyLabel.text = defaults.string(forKey: defaultsKeys.fromCurrency)
+        toCurrencyLabel.text = defaults.string(forKey: defaultsKeys.toCurrency)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,11 +49,6 @@ class ConversionViewController: UIViewController {
     
     @IBAction func dollarValueChanged(_ sender: UITextField) {
         calculateCurrency(using: sender)
-    }
-    
-    @IBAction func updateCurrency(_ sender: UIButton) {
-        sender.isEnabled = false
-        Valuta().update(forceUpdate: true, completion: updateCompletion)
     }
     
     func calculateCurrency(using textfield: UITextField) {
@@ -66,39 +68,18 @@ class ConversionViewController: UIViewController {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
         
         kronorLabel.text = formatter.string(from: kronor as NSNumber)
     }
     
     @objc func updateCompletion() {
         let defaults = UserDefaults.standard
-        let lastUpdated = defaults.double(forKey: defaultsKeys.updateTime)
-        currencyRate = defaults.double(forKey: defaultsKeys.currencyRate)
-        
-        let timeNow = Date(timeIntervalSince1970: lastUpdated)
-        let dateString = DateFormatter.localizedString(from: timeNow, dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.medium)
+        self.currencyRate = defaults.double(forKey: defaultsKeys.currencyRate)
         
         DispatchQueue.main.async {
-            self.updateLabel.setTitle("Last updated: \(dateString)", for: UIControlState.normal)
-            self.updateLabel.isEnabled = true
+            self.rateLabel.text = "Rate: \(self.currencyRate)"
             self.calculateCurrency(using: self.dollarField)
-        }
-    }
-    
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            updateLabelBottomConstraint.constant = 0 - keyboardSize.height
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        updateLabelBottomConstraint.constant = 0
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
         }
     }
 }

@@ -13,6 +13,7 @@
 		F731D57720EA1DAD0081B66C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F731D57620EA1DAD0081B66C /* Assets.xcassets */; };
 		F731D57A20EA1DAD0081B66C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F731D57820EA1DAD0081B66C /* LaunchScreen.storyboard */; };
 		F731D58520EA1DAD0081B66C /* How_Much_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731D58420EA1DAD0081B66C /* How_Much_Tests.swift */; };
+		F7921C1520ED022F0029E124 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7921C1420ED022F0029E124 /* SettingsViewController.swift */; };
 		F7BBBF4920EAA7F9006FD703 /* Valuta.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BBBF4820EAA7F9006FD703 /* Valuta.swift */; };
 		F7BBBF4B20EAACA5006FD703 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BBBF4A20EAACA5006FD703 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		F731D58020EA1DAD0081B66C /* How MuchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "How MuchTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F731D58420EA1DAD0081B66C /* How_Much_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = How_Much_Tests.swift; sourceTree = "<group>"; };
 		F731D58620EA1DAD0081B66C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7921C1420ED022F0029E124 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F7BBBF4820EAA7F9006FD703 /* Valuta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valuta.swift; sourceTree = "<group>"; };
 		F7BBBF4A20EAACA5006FD703 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 				F731D57B20EA1DAD0081B66C /* Info.plist */,
 				F7BBBF4820EAA7F9006FD703 /* Valuta.swift */,
 				F7BBBF4A20EAACA5006FD703 /* Constants.swift */,
+				F7921C1420ED022F0029E124 /* SettingsViewController.swift */,
 			);
 			path = "How Much";
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				F731D57220EA1DAC0081B66C /* ConversionViewController.swift in Sources */,
 				F7BBBF4B20EAACA5006FD703 /* Constants.swift in Sources */,
 				F7BBBF4920EAA7F9006FD703 /* Valuta.swift in Sources */,
+				F7921C1520ED022F0029E124 /* SettingsViewController.swift in Sources */,
 				F731D57020EA1DAC0081B66C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
