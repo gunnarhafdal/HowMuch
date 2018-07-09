@@ -14,8 +14,8 @@ class ConversionViewController: UIViewController {
     @IBOutlet weak var kronorLabel: UILabel!
     
     @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var fromCurrencyLabel: UILabel!
-    @IBOutlet weak var toCurrencyLabel: UILabel!
+    @IBOutlet weak var fromCurrencyButton: UIButton!
+    @IBOutlet weak var toCurrencyButton: UIButton!
     
     var currencyRate: Double = 0.0
     
@@ -29,9 +29,8 @@ class ConversionViewController: UIViewController {
         super.viewWillAppear(animated)
         
         let defaults = UserDefaults.standard
-        fromCurrencyLabel.text = defaults.string(forKey: defaultsKeys.fromCurrency)
-        toCurrencyLabel.text = defaults.string(forKey: defaultsKeys.toCurrency)
-        print("entering foreground")
+        fromCurrencyButton.setTitle(defaults.string(forKey: defaultsKeys.fromCurrency), for: .normal)
+        toCurrencyButton.setTitle(defaults.string(forKey: defaultsKeys.toCurrency), for: .normal)
         Valuta().update(completion: updateCompletion)
     }
     
@@ -78,6 +77,17 @@ class ConversionViewController: UIViewController {
         DispatchQueue.main.async {
             self.rateLabel.text = "Rate: \(rateString!)"
             self.calculateCurrency(using: self.dollarField)
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? CurrencyTableViewController {
+            vc.currencyToChange = segue.identifier == "chooseFrom" ? defaultsKeys.fromCurrency : defaultsKeys.toCurrency
         }
     }
 }
