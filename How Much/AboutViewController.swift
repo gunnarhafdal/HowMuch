@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  AboutViewController.swift
 //  How Much
 //
 //  Created by Gunnar Hafdal on 04/07/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class AboutViewController: UIViewController {
 
     @IBOutlet weak var fromButton: UIButton!
     @IBOutlet weak var toButton: UIButton!

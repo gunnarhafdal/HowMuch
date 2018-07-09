@@ -8,45 +8,51 @@
 
 import UIKit
 
-class CurrencyTableViewController: UITableViewController {
+class CurrencyTableViewController: UIViewController {
+    
+    @IBOutlet weak var currencyTable: UITableView!
     
     var currencyToChange: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currencyTable.delegate = self
+        currencyTable.dataSource = self
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
     }
+}
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension CurrencyTableViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencies.count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "currencyCell", for: indexPath)
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = currencyTable.dequeueReusableCell(withIdentifier: "currencyCell", for: indexPath) as! CurrencyTableViewCell
+        
         // Configure the cell...
         
-        cell.textLabel?.text = currencies[indexPath.row].name
-        cell.detailTextLabel?.text = currencies[indexPath.row].key
-
+        cell.name.text = currencies[indexPath.row].name
+        cell.code.text = currencies[indexPath.row].code
+        
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog("You selected \(currencies[indexPath.row].name)")
-        UserDefaults.standard.set(currencies[indexPath.row].key, forKey: currencyToChange)
+        UserDefaults.standard.set(currencies[indexPath.row].code, forKey: currencyToChange)
         UserDefaults.standard.set(0, forKey: defaultsKeys.timeWhenLastUpdated)
         self.dismiss(animated: true)
     }
-
+    
 }

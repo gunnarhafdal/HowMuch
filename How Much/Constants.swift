@@ -13,7 +13,7 @@ struct defaultsKeys {
     static let toCurrency = "toCurrency"
 }
 
-let currencies: [(key: String, name: String)] = [
+let currencies: [(code: String, name: String)] = [
     ("AED", "AED: United Arab Emirates Dirham"),
     ("AFN", "AFN: Afghan Afghani"),
     ("ALL", "ALL: Albanian Lek"),
