@@ -14,7 +14,7 @@ struct Valuta {
     let apiKey = "GBJIFQOH76BTIT9Y"
     let apiFunction = "CURRENCY_EXCHANGE_RATE"
     
-    func update(forceUpdate: Bool = false, completion: @escaping () -> Void) {
+    func update(forceUpdate: Bool = false, completion: (()->())? = nil) {
         let defaults = UserDefaults.standard
         let lastUpdated = defaults.double(forKey: defaultsKeys.timeWhenLastUpdated)
         
@@ -22,7 +22,7 @@ struct Valuta {
         
         guard forceUpdate == true || timeNow - lastUpdated > 10 else { // default: 21600
             print("cache fresh from less then 6 hours ago")
-            completion() //we run the completion if the data is cached
+            completion?() //we run the completion if the data is cached
             return
         }
         
@@ -93,7 +93,7 @@ struct Valuta {
                 let now = Date()
                 defaults.set(now.timeIntervalSince1970 as Double, forKey: defaultsKeys.timeWhenLastUpdated)
                 
-                completion()
+                completion?()
                 
             } catch  {
                 print("error trying to convert data to JSON")

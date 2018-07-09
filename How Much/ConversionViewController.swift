@@ -21,17 +21,8 @@ class ConversionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(updateCompletion),
-            name: NSNotification.Name(rawValue: "valutaUpdated"),
-            object: nil)
-        
         dollarField.attributedPlaceholder = NSAttributedString(string: "Amount",
                                                                attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
-        
-        Valuta().update(completion: updateCompletion)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +31,8 @@ class ConversionViewController: UIViewController {
         let defaults = UserDefaults.standard
         fromCurrencyLabel.text = defaults.string(forKey: defaultsKeys.fromCurrency)
         toCurrencyLabel.text = defaults.string(forKey: defaultsKeys.toCurrency)
+        print("entering foreground")
+        Valuta().update(completion: updateCompletion)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,8 +70,13 @@ class ConversionViewController: UIViewController {
         let defaults = UserDefaults.standard
         self.currencyRate = defaults.double(forKey: defaultsKeys.currencyRate)
         
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 8
+        let rateString = formatter.string(from: self.currencyRate as NSNumber)
+        
         DispatchQueue.main.async {
-            self.rateLabel.text = "Rate: \(self.currencyRate)"
+            self.rateLabel.text = "Rate: \(rateString!)"
             self.calculateCurrency(using: self.dollarField)
         }
     }

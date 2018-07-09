@@ -13,17 +13,38 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var fromButton: UIButton!
     @IBOutlet weak var toButton: UIButton!
     @IBOutlet weak var goBackButton: UIButton!
-    @IBOutlet weak var currencyPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        let defaults = UserDefaults.standard
+        if let fromCurrency = defaults.string(forKey: defaultsKeys.fromCurrency) {
+            fromButton.setTitle("From \(fromCurrency)", for: .normal)
+        }
         
+        if let toCurrency = defaults.string(forKey: defaultsKeys.toCurrency) {
+            toButton.setTitle("To \(toCurrency)", for: .normal)
+        }
+        Valuta().update()
     }
     
     @IBAction func goBack(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? CurrencyTableViewController {
+            vc.currencyToChange = segue.identifier == "chooseFrom" ? defaultsKeys.fromCurrency : defaultsKeys.toCurrency
+        }
+     }
+    
 }
