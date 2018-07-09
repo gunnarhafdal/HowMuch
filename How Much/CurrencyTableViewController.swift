@@ -28,29 +28,30 @@ class CurrencyTableViewController: UIViewController {
 }
 
 extension CurrencyTableViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return currencies.count
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currencies.count
+        return currencies[section].currencies.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return currencies[section].title
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = currencyTable.dequeueReusableCell(withIdentifier: "currencyCell", for: indexPath) as! CurrencyTableViewCell
         
         // Configure the cell...
-        
-        cell.name.text = currencies[indexPath.row].name
-        cell.code.text = currencies[indexPath.row].code
+        cell.code.text = currencies[indexPath.section].currencies[indexPath.row].code
+        cell.name.text = currencies[indexPath.section].currencies[indexPath.row].name
         
         return cell
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("You selected \(currencies[indexPath.row].name)")
-        UserDefaults.standard.set(currencies[indexPath.row].code, forKey: currencyToChange)
+        UserDefaults.standard.set(currencies[indexPath.section].currencies[indexPath.row].code, forKey: currencyToChange)
         UserDefaults.standard.set(0, forKey: defaultsKeys.timeWhenLastUpdated)
         self.dismiss(animated: true)
     }

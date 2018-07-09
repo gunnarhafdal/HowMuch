@@ -13,7 +13,39 @@ struct defaultsKeys {
     static let toCurrency = "toCurrency"
 }
 
-let currencies: [(code: String, name: String)] = [
+let currencies: [(title: String, currencies: [(code: String, name: String)])] = [
+    ("A", [
+        ("AED", "AED: United Arab Emirates Dirham"),
+        ("AFN", "AFN: Afghan Afghani"),
+        ("ALL", "ALL: Albanian Lek"),
+        ("AMD", "AMD: Armenian Dram"),
+        ("ANG", "ANG: Netherlands Antillean Guilder"),
+        ("AOA", "AOA: Angolan Kwanza"),
+        ("ARS", "ARS: Argentine Peso"),
+        ("AUD", "AUD: Australian Dollar"),
+        ("AWG", "AWG: Aruban Florin"),
+        ("AZN", "AZN: Azerbaijani Manat")
+        ]
+    ),
+    ("B", [
+        ("BAM", "BAM: Bosnia-Herzegovina Convertible Mark"),
+        ("BBD", "BBD: Barbadian Dollar"),
+        ("BDT", "BDT: Bangladeshi Taka"),
+        ("BGN", "BGN: Bulgarian Lev"),
+        ("BHD", "BHD: Bahraini Dinar"),
+        ("BIF", "BIF: Burundian Franc"),
+        ("BMD", "BMD: Bermudan Dollar"),
+        ("BND", "BND: Brunei Dollar"),
+        ("BOB", "BOB: Bolivian Boliviano"),
+        ("BRL", "BRL: Brazilian Real"),
+        ("BSD", "BSD: Bahamian Dollar"),
+        ("BTN", "BTN: Bhutanese Ngultrum"),
+        ("BWP", "BWP: Botswanan Pula"),
+        ("BZD", "BZD: Belize Dollar")
+        ])
+]
+
+let currencies_old: [(code: String, name: String)] = [
     ("AED", "AED: United Arab Emirates Dirham"),
     ("AFN", "AFN: Afghan Afghani"),
     ("ALL", "ALL: Albanian Lek"),
