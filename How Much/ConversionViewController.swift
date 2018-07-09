@@ -21,8 +21,6 @@ class ConversionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dollarField.attributedPlaceholder = NSAttributedString(string: "Amount",
-                                                               attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
     }
     
     override func viewWillAppear(_ animated: Bool) {
