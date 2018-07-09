@@ -20,7 +20,20 @@ class CurrencyTableViewController: UIViewController {
         currencyTable.delegate = self
         currencyTable.dataSource = self
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let selectedCurrencyCode = UserDefaults.standard.string(forKey: currencyToChange) else {
+            return
+        }
+
+        for currenciesSection in currencies {
+            for currency in currenciesSection.currencies {
+                if currency.code == selectedCurrencyCode {
+                    currencies[0].currencies = [(currency.code, currency.name)]
+                }
+            }
+        }
+    }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
@@ -32,12 +45,29 @@ extension CurrencyTableViewController: UITableViewDelegate, UITableViewDataSourc
         return currencies.count
     }
     
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        var index: [String] = []
+        for currenciesSection in currencies {
+            index.append(currenciesSection.title)
+        }
+        
+        return index
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencies[section].currencies.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return currencies[section].title
+        
+        switch section {
+        case 0:
+            return "Current selection"
+        case 1:
+            return "Popular"
+        default:
+            return currencies[section].title
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

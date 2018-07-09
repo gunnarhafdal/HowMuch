@@ -13,194 +13,250 @@ struct defaultsKeys {
     static let toCurrency = "toCurrency"
 }
 
-let currencies: [(title: String, currencies: [(code: String, name: String)])] = [
+var currencies: [(title: String, currencies: [(code: String, name: String)])] = [
+    ("✓", []
+    ),
+    ("✮", [
+        ("USD", "United States Dollar"),
+        ("EUR", "Euro"),
+        ("GBP", "British Pound Sterling"),
+        ("AUD", "Australian Dollar"),
+        ("CAD", "Canadian Dollar"),
+        ("DKK", "Danish Krone"),
+        ]
+    ),
     ("A", [
-        ("AED", "AED: United Arab Emirates Dirham"),
-        ("AFN", "AFN: Afghan Afghani"),
-        ("ALL", "ALL: Albanian Lek"),
-        ("AMD", "AMD: Armenian Dram"),
-        ("ANG", "ANG: Netherlands Antillean Guilder"),
-        ("AOA", "AOA: Angolan Kwanza"),
-        ("ARS", "ARS: Argentine Peso"),
-        ("AUD", "AUD: Australian Dollar"),
-        ("AWG", "AWG: Aruban Florin"),
-        ("AZN", "AZN: Azerbaijani Manat")
+        ("AED", "United Arab Emirates Dirham"),
+        ("AFN", "Afghan Afghani"),
+        ("ALL", "Albanian Lek"),
+        ("AMD", "Armenian Dram"),
+        ("ANG", "Netherlands Antillean Guilder"),
+        ("AOA", "Angolan Kwanza"),
+        ("ARS", "Argentine Peso"),
+        ("AUD", "Australian Dollar"),
+        ("AWG", "Aruban Florin"),
+        ("AZN", "Azerbaijani Manat")
         ]
     ),
     ("B", [
-        ("BAM", "BAM: Bosnia-Herzegovina Convertible Mark"),
-        ("BBD", "BBD: Barbadian Dollar"),
-        ("BDT", "BDT: Bangladeshi Taka"),
-        ("BGN", "BGN: Bulgarian Lev"),
-        ("BHD", "BHD: Bahraini Dinar"),
-        ("BIF", "BIF: Burundian Franc"),
-        ("BMD", "BMD: Bermudan Dollar"),
-        ("BND", "BND: Brunei Dollar"),
-        ("BOB", "BOB: Bolivian Boliviano"),
-        ("BRL", "BRL: Brazilian Real"),
-        ("BSD", "BSD: Bahamian Dollar"),
-        ("BTN", "BTN: Bhutanese Ngultrum"),
-        ("BWP", "BWP: Botswanan Pula"),
-        ("BZD", "BZD: Belize Dollar")
-        ])
+        ("BAM", "Bosnia-Herzegovina Convertible Mark"),
+        ("BBD", "Barbadian Dollar"),
+        ("BDT", "Bangladeshi Taka"),
+        ("BGN", "Bulgarian Lev"),
+        ("BHD", "Bahraini Dinar"),
+        ("BIF", "Burundian Franc"),
+        ("BMD", "Bermudan Dollar"),
+        ("BND", "Brunei Dollar"),
+        ("BOB", "Bolivian Boliviano"),
+        ("BRL", "Brazilian Real"),
+        ("BSD", "Bahamian Dollar"),
+        ("BTN", "Bhutanese Ngultrum"),
+        ("BWP", "Botswanan Pula"),
+        ("BZD", "Belize Dollar")
+        ]
+    ),
+    ("C", [
+        ("CAD", "Canadian Dollar"),
+        ("CDF", "Congolese Franc"),
+        ("CHF", "Swiss Franc"),
+        ("CLF", "Chilean Unit of Account UF"),
+        ("CLP", "Chilean Peso"),
+        ("CNH", "Chinese Yuan Offshore"),
+        ("CNY", "Chinese Yuan"),
+        ("COP", "Colombian Peso"),
+        ("CUP", "Cuban Peso"),
+        ("CVE", "Cape Verdean Escudo"),
+        ("CZK", "Czech Republic Koruna")
+        ]
+    ),
+    ("D", [
+        ("DJF", "Djiboutian Franc"),
+        ("DKK", "Danish Krone"),
+        ("DOP", "Dominican Peso"),
+        ("DZD", "Algerian Dinar")
+        ]
+    ),
+    ("E", [
+        ("EGP", "Egyptian Pound"),
+        ("ERN", "Eritrean Nakfa"),
+        ("ETB", "Ethiopian Birr"),
+        ("EUR", "Euro")
+        ]
+    ),
+    ("F", [
+        ("FJD", "Fijian Dollar"),
+        ("FKP", "Falkland Islands Pound")
+        ]
+    ),
+    ("G", [
+        ("GBP", "British Pound Sterling"),
+        ("GEL", "Georgian Lari"),
+        ("GHS", "Ghanaian Cedi"),
+        ("GIP", "Gibraltar Pound"),
+        ("GMD", "Gambian Dalasi"),
+        ("GNF", "Guinean Franc"),
+        ("GTQ", "Guatemalan Quetzal"),
+        ("GYD", "Guyanaese Dollar")
+        ]
+    ),
+    ("H", [
+        ("HKD", "Hong Kong Dollar"),
+        ("HNL", "Honduran Lempira"),
+        ("HRK", "Croatian Kuna"),
+        ("HTG", "Haitian Gourde"),
+        ("HUF", "Hungarian Forint")
+        ]
+    ),
+    ("I", [
+        ("IDR", "Indonesian Rupiah"),
+        ("ILS", "Israeli New Sheqel"),
+        ("INR", "Indian Rupee"),
+        ("IQD", "Iraqi Dinar"),
+        ("IRR", "Iranian Rial")
+        ]
+    ),
+    ("J", [
+        ("JEP", "Jersey Pound"),
+        ("JMD", "Jamaican Dollar"),
+        ("JOD", "Jordanian Dinar"),
+        ("JPY", "Japanese Yen")
+        ]
+    ),
+    ("K", [
+        ("KES", "Kenyan Shilling"),
+        ("KGS", "Kyrgystani Som"),
+        ("KHR", "Cambodian Riel"),
+        ("KMF", "Comorian Franc"),
+        ("KPW", "North Korean Won"),
+        ("KRW", "South Korean Won"),
+        ("KWD", "Kuwaiti Dinar"),
+        ("KYD", "Cayman Islands Dollar"),
+        ("KZT", "Kazakhstani Tenge")
+        ]
+    ),
+    ("L", [
+        ("LAK", "Laotian Kip"),
+        ("LBP", "Lebanese Pound"),
+        ("LKR", "Sri Lankan Rupee"),
+        ("LRD", "Liberian Dollar"),
+        ("LSL", "Lesotho Loti"),
+        ("LYD", "Libyan Dinar")
+        ]
+    ),
+    ("M", [
+        ("MAD", "Moroccan Dirham"),
+        ("MDL", "Moldovan Leu"),
+        ("MGA", "Malagasy Ariary"),
+        ("MKD", "Macedonian Denar"),
+        ("MMK", "Myanma Kyat"),
+        ("MNT", "Mongolian Tugrik"),
+        ("MOP", "Macanese Pataca"),
+        ("MRO", "Mauritanian Ouguiya (pre-2018)"),
+        ("MRU", "Mauritanian Ouguiya"),
+        ("MUR", "Mauritian Rupee"),
+        ("MVR", "Maldivian Rufiyaa"),
+        ("MWK", "Malawian Kwacha"),
+        ("MXN", "Mexican Peso"),
+        ("MYR", "Malaysian Ringgit"),
+        ("MZN", "Mozambican Metical")
+        ]
+    ),
+    ("N", [
+        ("NAD", "Namibian Dollar"),
+        ("NGN", "Nigerian Naira"),
+        ("NOK", "Norwegian Krone"),
+        ("NPR", "Nepalese Rupee"),
+        ("NZD", "New Zealand Dollar")
+        ]
+    ),
+    ("O", [
+        ("OMR", "Omani Rial")
+        ]
+    ),
+    ("P", [
+        ("PAB", "Panamanian Balboa"),
+        ("PEN", "Peruvian Nuevo Sol"),
+        ("PGK", "Papua New Guinean Kina"),
+        ("PHP", "Philippine Peso"),
+        ("PKR", "Pakistani Rupee"),
+        ("PLN", "Polish Zloty"),
+        ("PYG", "Paraguayan Guarani")
+        ]
+    ),
+    ("Q", [
+        ("QAR", "Qatari Rial")
+        ]
+    ),
+    ("R", [
+        ("RON", "Romanian Leu"),
+        ("RSD", "Serbian Dinar"),
+        ("RUB", "Russian Ruble"),
+        ("RUR", "Old Russian Ruble"),
+        ("RWF", "Rwandan Franc")
+        ]
+    ),
+    ("S", [
+        ("SAR", "Saudi Riyal"),
+        //("SBDf", "Solomon Islands Dollar"),
+        ("SCR", "Seychellois Rupee"),
+        ("SDG", "Sudanese Pound"),
+        ("SEK", "Swedish Krona"),
+        ("SGD", "Singapore Dollar"),
+        ("SHP", "Saint Helena Pound"),
+        ("SLL", "Sierra Leonean Leone"),
+        ("SOS", "Somali Shilling"),
+        ("SRD", "Surinamese Dollar"),
+        ("SYP", "Syrian Pound"),
+        ("SZL", "Swazi Lilangeni")
+        ]
+    ),
+    ("T", [
+        ("THB", "Thai Baht"),
+        ("TJS", "Tajikistani Somoni"),
+        ("TMT", "Turkmenistani Manat"),
+        ("TND", "Tunisian Dinar"),
+        ("TOP", "Tongan Pa'anga"),
+        ("TRY", "Turkish Lira"),
+        ("TTD", "Trinidad and Tobago Dollar"),
+        ("TWD", "New Taiwan Dollar"),
+        ("TZS", "Tanzanian Shilling")
+        ]
+    ),
+    ("U", [
+        ("UAH", "Ukrainian Hryvnia"),
+        ("UGX", "Ugandan Shilling"),
+        ("USD", "United States Dollar"),
+        ("UYU", "Uruguayan Peso"),
+        ("UZS", "Uzbekistan Som")
+        ]
+    ),
+    ("V", [
+        ("VND", "Vietnamese Dong"),
+        ("VUV", "Vanuatu Vatu")
+        ]
+    ),
+    ("W", [
+        ("WST", "Samoan Tala")
+        ]
+    ),
+    ("X", [
+        ("XAF", "CFA Franc BEAC"),
+        ("XAG", "Silver Ounce"),
+        ("XAU", "Gold Ounce"),
+        ("XCD", "East Caribbean Dollar"),
+        ("XDR", "Special Drawing Rights"),
+        ("XOF", "CFA Franc BCEAO"),
+        ("XPF", "CFP Franc")
+        ]
+    ),
+    ("Y", [
+        ("YER", "Yemeni Rial")
+        ]
+    ),
+    ("Z", [
+        ("ZAR", "South African Rand"),
+        ("ZMW", "Zambian Kwacha"),
+        ("ZWL", "Zimbabwean Dollar")
+        ]
+    )
 ]
-
-let currencies_old: [(code: String, name: String)] = [
-    ("AED", "AED: United Arab Emirates Dirham"),
-    ("AFN", "AFN: Afghan Afghani"),
-    ("ALL", "ALL: Albanian Lek"),
-    ("AMD", "AMD: Armenian Dram"),
-    ("ANG", "ANG: Netherlands Antillean Guilder"),
-    ("AOA", "AOA: Angolan Kwanza"),
-    ("ARS", "ARS: Argentine Peso"),
-    ("AUD", "AUD: Australian Dollar"),
-    ("AWG", "AWG: Aruban Florin"),
-    ("AZN", "AZN: Azerbaijani Manat"),
-    ("BAM", "BAM: Bosnia-Herzegovina Convertible Mark"),
-    ("BBD", "BBD: Barbadian Dollar"),
-    ("BDT", "BDT: Bangladeshi Taka"),
-    ("BGN", "BGN: Bulgarian Lev"),
-    ("BHD", "BHD: Bahraini Dinar"),
-    ("BIF", "BIF: Burundian Franc"),
-    ("BMD", "BMD: Bermudan Dollar"),
-    ("BND", "BND: Brunei Dollar"),
-    ("BOB", "BOB: Bolivian Boliviano"),
-    ("BRL", "BRL: Brazilian Real"),
-    ("BSD", "BSD: Bahamian Dollar"),
-    ("BTN", "BTN: Bhutanese Ngultrum"),
-    ("BWP", "BWP: Botswanan Pula"),
-    ("BZD", "BZD: Belize Dollar"),
-    ("CAD", "CAD: Canadian Dollar"),
-    ("CDF", "CDF: Congolese Franc"),
-    ("CHF", "CHF: Swiss Franc"),
-    ("CLF", "CLF: Chilean Unit of Account UF"),
-    ("CLP", "CLP: Chilean Peso"),
-    ("CNH", "CNH: Chinese Yuan Offshore"),
-    ("CNY", "CNY: Chinese Yuan"),
-    ("COP", "COP: Colombian Peso"),
-    ("CUP", "CUP: Cuban Peso"),
-    ("CVE", "CVE: Cape Verdean Escudo"),
-    ("CZK", "CZK: Czech Republic Koruna"),
-    ("DJF", "DJF: Djiboutian Franc"),
-    ("DKK", "DKK: Danish Krone"),
-    ("DOP", "DOP: Dominican Peso"),
-    ("DZD", "DZD: Algerian Dinar"),
-    ("EGP", "EGP: Egyptian Pound"),
-    ("ERN", "ERN: Eritrean Nakfa"),
-    ("ETB", "ETB: Ethiopian Birr"),
-    ("EUR", "EUR: Euro"),
-    ("FJD", "FJD: Fijian Dollar"),
-    ("FKP", "FKP: Falkland Islands Pound"),
-    ("GBP", "GBP: British Pound Sterling"),
-    ("GEL", "GEL: Georgian Lari"),
-    ("GHS", "GHS: Ghanaian Cedi"),
-    ("GIP", "GIP: Gibraltar Pound"),
-    ("GMD", "GMD: Gambian Dalasi"),
-    ("GNF", "GNF: Guinean Franc"),
-    ("GTQ", "GTQ: Guatemalan Quetzal"),
-    ("GYD", "GYD: Guyanaese Dollar"),
-    ("HKD", "HKD: Hong Kong Dollar"),
-    ("HNL", "HNL: Honduran Lempira"),
-    ("HRK", "HRK: Croatian Kuna"),
-    ("HTG", "HTG: Haitian Gourde"),
-    ("HUF", "HUF: Hungarian Forint"),
-    ("IDR", "IDR: Indonesian Rupiah"),
-    ("ILS", "ILS: Israeli New Sheqel"),
-    ("INR", "INR: Indian Rupee"),
-    ("IQD", "IQD: Iraqi Dinar"),
-    ("IRR", "IRR: Iranian Rial"),
-    ("JEP", "JEP: Jersey Pound"),
-    ("JMD", "JMD: Jamaican Dollar"),
-    ("JOD", "JOD: Jordanian Dinar"),
-    ("JPY", "JPY: Japanese Yen"),
-    ("KES", "KES: Kenyan Shilling"),
-    ("KGS", "KGS: Kyrgystani Som"),
-    ("KHR", "KHR: Cambodian Riel"),
-    ("KMF", "KMF: Comorian Franc"),
-    ("KPW", "KPW: North Korean Won"),
-    ("KRW", "KRW: South Korean Won"),
-    ("KWD", "KWD: Kuwaiti Dinar"),
-    ("KYD", "KYD: Cayman Islands Dollar"),
-    ("KZT", "KZT: Kazakhstani Tenge"),
-    ("LAK", "LAK: Laotian Kip"),
-    ("LBP", "LBP: Lebanese Pound"),
-    ("LKR", "LKR: Sri Lankan Rupee"),
-    ("LRD", "LRD: Liberian Dollar"),
-    ("LSL", "LSL: Lesotho Loti"),
-    ("LYD", "LYD: Libyan Dinar"),
-    ("MAD", "MAD: Moroccan Dirham"),
-    ("MDL", "MDL: Moldovan Leu"),
-    ("MGA", "MGA: Malagasy Ariary"),
-    ("MKD", "MKD: Macedonian Denar"),
-    ("MMK", "MMK: Myanma Kyat"),
-    ("MNT", "MNT: Mongolian Tugrik"),
-    ("MOP", "MOP: Macanese Pataca"),
-    ("MRO", "MRO: Mauritanian Ouguiya (pre-2018)"),
-    ("MRU", "MRU: Mauritanian Ouguiya"),
-    ("MUR", "MUR: Mauritian Rupee"),
-    ("MVR", "MVR: Maldivian Rufiyaa"),
-    ("MWK", "MWK: Malawian Kwacha"),
-    ("MXN", "MXN: Mexican Peso"),
-    ("MYR", "MYR: Malaysian Ringgit"),
-    ("MZN", "MZN: Mozambican Metical"),
-    ("NAD", "NAD: Namibian Dollar"),
-    ("NGN", "NGN: Nigerian Naira"),
-    ("NOK", "NOK: Norwegian Krone"),
-    ("NPR", "NPR: Nepalese Rupee"),
-    ("NZD", "NZD: New Zealand Dollar"),
-    ("OMR", "OMR: Omani Rial"),
-    ("PAB", "PAB: Panamanian Balboa"),
-    ("PEN", "PEN: Peruvian Nuevo Sol"),
-    ("PGK", "PGK: Papua New Guinean Kina"),
-    ("PHP", "PHP: Philippine Peso"),
-    ("PKR", "PKR: Pakistani Rupee"),
-    ("PLN", "PLN: Polish Zloty"),
-    ("PYG", "PYG: Paraguayan Guarani"),
-    ("QAR", "QAR: Qatari Rial"),
-    ("RON", "RON: Romanian Leu"),
-    ("RSD", "RSD: Serbian Dinar"),
-    ("RUB", "RUB: Russian Ruble"),
-    ("RUR", "RUR: Old Russian Ruble"),
-    ("RWF", "RWF: Rwandan Franc"),
-    ("SAR", "SAR: Saudi Riyal"),
-    //("SBDf", "SBDf: Solomon Islands Dollar"),
-    ("SCR", "SCR: Seychellois Rupee"),
-    ("SDG", "SDG: Sudanese Pound"),
-    ("SEK", "SEK: Swedish Krona"),
-    ("SGD", "SGD: Singapore Dollar"),
-    ("SHP", "SHP: Saint Helena Pound"),
-    ("SLL", "SLL: Sierra Leonean Leone"),
-    ("SOS", "SOS: Somali Shilling"),
-    ("SRD", "SRD: Surinamese Dollar"),
-    ("SYP", "SYP: Syrian Pound"),
-    ("SZL", "SZL: Swazi Lilangeni"),
-    ("THB", "THB: Thai Baht"),
-    ("TJS", "TJS: Tajikistani Somoni"),
-    ("TMT", "TMT: Turkmenistani Manat"),
-    ("TND", "TND: Tunisian Dinar"),
-    ("TOP", "TOP: Tongan Pa'anga"),
-    ("TRY", "TRY: Turkish Lira"),
-    ("TTD", "TTD: Trinidad and Tobago Dollar"),
-    ("TWD", "TWD: New Taiwan Dollar"),
-    ("TZS", "TZS: Tanzanian Shilling"),
-    ("UAH", "UAH: Ukrainian Hryvnia"),
-    ("UGX", "UGX: Ugandan Shilling"),
-    ("USD", "USD: United States Dollar"),
-    ("UYU", "UYU: Uruguayan Peso"),
-    ("UZS", "UZS: Uzbekistan Som"),
-    ("VND", "VND: Vietnamese Dong"),
-    ("VUV", "VUV: Vanuatu Vatu"),
-    ("WST", "WST: Samoan Tala"),
-    ("XAF", "XAF: CFA Franc BEAC"),
-    ("XAG", "XAG: Silver Ounce"),
-    ("XAU", "XAU: Gold Ounce"),
-    ("XCD", "XCD: East Caribbean Dollar"),
-    ("XDR", "XDR: Special Drawing Rights"),
-    ("XOF", "XOF: CFA Franc BCEAO"),
-    ("XPF", "XPF: CFP Franc"),
-    ("YER", "YER: Yemeni Rial"),
-    ("ZAR", "ZAR: South African Rand"),
-    ("ZMW", "ZMW: Zambian Kwacha"),
-    ("ZWL", "ZWL: Zimbabwean Dollar")
-]
-

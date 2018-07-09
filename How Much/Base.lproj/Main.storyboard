@@ -25,13 +25,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlH-CT-8bO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="252" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HlH-CT-8bO">
                                 <rect key="frame" x="114" y="206" width="190" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQ5-AG-Q4E">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VQ5-AG-Q4E">
                                 <rect key="frame" x="114" y="137" width="190" height="39"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
@@ -55,7 +55,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8R-4Z-67F">
                                 <rect key="frame" x="16" y="137" width="90" height="39"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="AUW-tN-lha"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="AUW-tN-lha"/>
                                     <constraint firstAttribute="height" constant="39" id="Dtr-cX-Xpp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
@@ -68,7 +68,7 @@
                                 <rect key="frame" x="16" y="206" width="90" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="9GI-bI-lFR"/>
-                                    <constraint firstAttribute="width" constant="90" id="eKC-TT-bBa"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="eKC-TT-bBa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                 <state key="normal" title="MMM"/>
@@ -87,6 +87,7 @@
                             <constraint firstItem="2Tw-Vj-u86" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="93b-Dz-1zC"/>
                             <constraint firstItem="LI0-IN-eIy" firstAttribute="top" secondItem="2Tw-Vj-u86" secondAttribute="bottom" constant="36" id="C2s-7D-A2p"/>
                             <constraint firstItem="VQ5-AG-Q4E" firstAttribute="leading" secondItem="F8R-4Z-67F" secondAttribute="trailing" constant="8" id="Eox-cG-qhw"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LI0-IN-eIy" secondAttribute="trailing" constant="20" symbolic="YES" id="HNs-nw-iP9"/>
                             <constraint firstItem="2Tw-Vj-u86" firstAttribute="centerY" secondItem="HlH-CT-8bO" secondAttribute="centerY" id="Mjs-fq-I2l"/>
                             <constraint firstItem="F8R-4Z-67F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QCp-Si-fZf"/>
                             <constraint firstItem="lKv-GD-Q1V" firstAttribute="centerY" secondItem="ul2-qo-RkZ" secondAttribute="centerY" id="QQV-xz-054"/>
@@ -139,6 +140,7 @@
                             <constraint firstItem="Ndt-oY-ChM" firstAttribute="trailing" secondItem="KUk-jP-aJb" secondAttribute="trailing" constant="16" id="60r-mg-fqx"/>
                             <constraint firstItem="KUk-jP-aJb" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="OsH-9R-AJX"/>
                             <constraint firstItem="KUk-jP-aJb" firstAttribute="top" secondItem="Ndt-oY-ChM" secondAttribute="top" constant="20" id="gP0-YQ-vLm"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hwj-6E-Xls" secondAttribute="trailing" constant="20" symbolic="YES" id="jrB-Qk-6lE"/>
                             <constraint firstItem="Ndt-oY-ChM" firstAttribute="bottom" secondItem="Hwj-6E-Xls" secondAttribute="bottom" constant="20" id="kPF-ub-A8c"/>
                             <constraint firstItem="Hwj-6E-Xls" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="oJy-k3-gbj"/>
                         </constraints>
@@ -163,6 +165,12 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnY-6g-dfs">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Select currency" largeTitleDisplayMode="always" id="IK6-zk-Lha">
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="t4Z-9k-wHA">
@@ -187,13 +195,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eK0-je-0gp">
                                                     <rect key="frame" x="15" y="11" width="50" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="cUV-VZ-cIJ"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="cUV-VZ-cIJ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-tN-Zsc">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Currency name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-tN-Zsc">
                                                     <rect key="frame" x="73" y="11" width="232" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
