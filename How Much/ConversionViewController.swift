@@ -29,6 +29,7 @@ class ConversionViewController: UIViewController {
         let defaults = UserDefaults.standard
         fromCurrencyButton.setTitle(defaults.string(forKey: defaultsKeys.fromCurrency), for: .normal)
         toCurrencyButton.setTitle(defaults.string(forKey: defaultsKeys.toCurrency), for: .normal)
+        self.rateLabel.text = "Fetching currency rate…"
         Valuta().update(completion: updateCompletion)
     }
     
