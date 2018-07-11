@@ -126,7 +126,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwj-6E-Xls">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwj-6E-Xls">
                                 <rect key="frame" x="16" y="512" width="82" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                 <state key="normal" title="Go back"/>
@@ -134,11 +134,30 @@
                                     <action selector="goBack:" destination="KkJ-xo-Ta4" eventType="touchUpInside" id="KCT-dQ-Lb7"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAW-78-yOJ">
+                                <rect key="frame" x="16" y="99" width="288" height="405"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Created by Gunnar Hafdal
+https://madebyhafdal.com/
+
+Foreign Exchange data 
+from Alpha Vantage
+https://www.alphavantage.co/
+
+Made with ☺️ in Aarhus</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ndt-oY-ChM" firstAttribute="trailing" secondItem="KUk-jP-aJb" secondAttribute="trailing" constant="16" id="60r-mg-fqx"/>
+                            <constraint firstItem="Hwj-6E-Xls" firstAttribute="top" secondItem="IAW-78-yOJ" secondAttribute="bottom" constant="8" id="Dxm-vg-blp"/>
                             <constraint firstItem="KUk-jP-aJb" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="OsH-9R-AJX"/>
+                            <constraint firstItem="Ndt-oY-ChM" firstAttribute="trailing" secondItem="IAW-78-yOJ" secondAttribute="trailing" constant="16" id="bg8-Q3-kxQ"/>
+                            <constraint firstItem="IAW-78-yOJ" firstAttribute="top" secondItem="KUk-jP-aJb" secondAttribute="bottom" constant="8" id="cKI-cF-Auo"/>
+                            <constraint firstItem="IAW-78-yOJ" firstAttribute="leading" secondItem="Ndt-oY-ChM" secondAttribute="leading" constant="16" id="e5M-Eo-XQS"/>
                             <constraint firstItem="KUk-jP-aJb" firstAttribute="top" secondItem="Ndt-oY-ChM" secondAttribute="top" constant="20" id="gP0-YQ-vLm"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Hwj-6E-Xls" secondAttribute="trailing" constant="20" symbolic="YES" id="jrB-Qk-6lE"/>
                             <constraint firstItem="Ndt-oY-ChM" firstAttribute="bottom" secondItem="Hwj-6E-Xls" secondAttribute="bottom" constant="20" id="kPF-ub-A8c"/>
@@ -152,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dNT-Zd-mEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="-83"/>
+            <point key="canvasLocation" x="1320" y="-83.450704225352112"/>
         </scene>
         <!--Currency Table View Controller-->
         <scene sceneID="L4e-Le-yRy">
