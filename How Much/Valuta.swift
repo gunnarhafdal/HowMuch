@@ -28,11 +28,13 @@ struct Valuta {
         
         guard let fromCurrency = defaults.string(forKey: defaultsKeys.fromCurrency) else {
             print("Error: Cannot get from currency")
+            completion?()
             return
         }
         
         guard let toCurrency = defaults.string(forKey: defaultsKeys.toCurrency) else {
             print("Error: Cannot get to currency")
+            completion?()
             return
         }
         
@@ -40,6 +42,7 @@ struct Valuta {
         
         guard let url = URL(string: apiEndpoint) else {
             print("Error: cannot create URL")
+            completion?()
             return
         }
         let urlRequest = URLRequest(url: url)
@@ -55,11 +58,13 @@ struct Valuta {
             guard error == nil else {
                 print("error getting currency")
                 print(error!)
+                completion?()
                 return
             }
             // make sure we got data
             guard let responseData = data else {
                 print("Error: did not receive data")
+                completion?()
                 return
             }
             
@@ -68,22 +73,26 @@ struct Valuta {
                 guard let resultJSON = try JSONSerialization.jsonObject(with: responseData, options: [])
                     as? [String: Any] else {
                         print("error trying to convert data to JSON")
+                        completion?()
                         return
                 }
                 
                 guard let resultObject = resultJSON["Realtime Currency Exchange Rate"] as? [String: Any] else {
                     print("error trying to convert exchange rate")
+                    completion?()
                     return
                 }
                 
                 guard let rate = resultObject["5. Exchange Rate"] as? String else {
                     print("Could not get rate from JSON")
+                    completion?()
                     return
                 }
                 print("The rate string is: " + rate)
                 
                 guard let rateDouble = Double(rate) else {
                     print("Could not convert rate to double")
+                    completion?()
                     return
                 }
                 
@@ -97,6 +106,7 @@ struct Valuta {
                 
             } catch  {
                 print("error trying to convert data to JSON")
+                completion?()
                 return
             }
         }
