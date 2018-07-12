@@ -14,35 +14,31 @@ struct Valuta {
     let apiKey = "GBJIFQOH76BTIT9Y"
     let apiFunction = "CURRENCY_EXCHANGE_RATE"
     
-    func update(forceUpdate: Bool = false, completion: (()->())? = nil) {
+    func update(forceUpdate: Bool = false, completion: ((_ error: String?)->())? = nil) {
         let defaults = UserDefaults.standard
         let lastUpdated = defaults.double(forKey: defaultsKeys.timeWhenLastUpdated)
         
         let timeNow = Date().timeIntervalSince1970 as Double
         
-        guard forceUpdate == true || timeNow - lastUpdated > 10800 else { // 3 hours cache
-            print("cache fresh from less then 3 hours ago")
-            completion?() //we run the completion if the data is cached
+        guard forceUpdate == true || timeNow - lastUpdated > 10 else { // 3 hours cache
+            completion?(nil) //we run the completion if the data is cached
             return
         }
         
         guard let fromCurrency = defaults.string(forKey: defaultsKeys.fromCurrency) else {
-            print("Error: Cannot get from currency")
-            completion?()
+            completion?("Cannot get from currency")
             return
         }
         
         guard let toCurrency = defaults.string(forKey: defaultsKeys.toCurrency) else {
-            print("Error: Cannot get to currency")
-            completion?()
+            completion?("Cannot get to currency")
             return
         }
         
         let apiEndpoint: String = "\(apiBase)/query?function=\(apiFunction)&from_currency=\(fromCurrency)&to_currency=\(toCurrency)&apikey=\(apiKey)"
         
         guard let url = URL(string: apiEndpoint) else {
-            print("Error: cannot create URL")
-            completion?()
+            completion?("Cannot create URL")
             return
         }
         let urlRequest = URLRequest(url: url)
@@ -56,15 +52,12 @@ struct Valuta {
             (data, response, error) in
             // check for any errors
             guard error == nil else {
-                print("error getting currency")
-                print(error!)
-                completion?()
+                completion?("Couldn't fetch currency rate")
                 return
             }
             // make sure we got data
             guard let responseData = data else {
-                print("Error: did not receive data")
-                completion?()
+                completion?("No response data receieved from server")
                 return
             }
             
@@ -72,27 +65,22 @@ struct Valuta {
                 //
                 guard let resultJSON = try JSONSerialization.jsonObject(with: responseData, options: [])
                     as? [String: Any] else {
-                        print("error trying to convert data to JSON")
-                        completion?()
+                        completion?("Data from server not JSON")
                         return
                 }
                 
                 guard let resultObject = resultJSON["Realtime Currency Exchange Rate"] as? [String: Any] else {
-                    print("error trying to convert exchange rate")
-                    completion?()
+                    completion?("JSON data not in right format")
                     return
                 }
                 
                 guard let rate = resultObject["5. Exchange Rate"] as? String else {
-                    print("Could not get rate from JSON")
-                    completion?()
+                    completion?("Currency rate data missing from JSON")
                     return
                 }
-                print("The rate string is: " + rate)
                 
                 guard let rateDouble = Double(rate) else {
-                    print("Could not convert rate to double")
-                    completion?()
+                    completion?("Couldn't convert currency rate data to a number")
                     return
                 }
                 
@@ -102,11 +90,10 @@ struct Valuta {
                 let now = Date()
                 defaults.set(now.timeIntervalSince1970 as Double, forKey: defaultsKeys.timeWhenLastUpdated)
                 
-                completion?()
+                completion?(nil)
                 
-            } catch  {
-                print("error trying to convert data to JSON")
-                completion?()
+            } catch {
+                completion?("Couldn't convert server data to JSON")
                 return
             }
         }

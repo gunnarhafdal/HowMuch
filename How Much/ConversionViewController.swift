@@ -64,7 +64,7 @@ class ConversionViewController: UIViewController {
         kronorLabel.text = formatter.string(from: kronor as NSNumber)
     }
     
-    @objc func updateCompletion() {
+    func updateCompletion(_ error: String?) {
         let defaults = UserDefaults.standard
         self.currencyRate = defaults.double(forKey: defaultsKeys.currencyRate)
         
@@ -74,7 +74,12 @@ class ConversionViewController: UIViewController {
         let rateString = formatter.string(from: self.currencyRate as NSNumber)
         
         DispatchQueue.main.async {
-            self.rateLabel.text = "Rate: \(rateString!)"
+            if let error = error {
+                self.rateLabel.text = "Rate: \(rateString!)\n\(error)"
+            } else {
+                self.rateLabel.text = "Rate: \(rateString!)"
+            }
+            
             self.calculateCurrency(using: self.dollarField)
         }
     }
