@@ -20,7 +20,7 @@ struct Valuta {
         
         let timeNow = Date().timeIntervalSince1970 as Double
         
-        guard forceUpdate == true || timeNow - lastUpdated > 10 else { // 3 hours cache
+        guard forceUpdate == true || timeNow - lastUpdated > 10800 else { // 3 hours cache
             completion?(nil) //we run the completion if the data is cached
             return
         }
