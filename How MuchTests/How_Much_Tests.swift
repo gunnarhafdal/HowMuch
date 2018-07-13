@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import How_Much_
+@testable import How_Much
 
 class How_Much_Tests: XCTestCase {
     
