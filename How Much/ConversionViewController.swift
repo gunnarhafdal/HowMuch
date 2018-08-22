@@ -11,7 +11,7 @@ import UIKit
 class ConversionViewController: UIViewController {
 
     @IBOutlet weak var dollarField: UITextField!
-    @IBOutlet weak var kronorLabel: UILabel!
+    @IBOutlet weak var kronorField: UITextField!
     
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var fromCurrencyButton: UIButton!
@@ -42,16 +42,20 @@ class ConversionViewController: UIViewController {
         calculateCurrency(using: sender)
     }
     
+    @IBAction func kronorValueChanged(_ sender: UITextField) {
+        calculateDollarCurrency(using: sender)
+    }
+    
     func calculateCurrency(using textfield: UITextField) {
         guard let valueString = textfield.text else {
-            kronorLabel.text = "0"
+            kronorField.text = "0"
             return
         }
         
         let cleanedString = valueString.replacingOccurrences(of: ",", with: ".")
         
         guard let dollars = Double(cleanedString) else {
-            kronorLabel.text = "0"
+            kronorField.text = "0"
             return
         }
         
@@ -61,7 +65,29 @@ class ConversionViewController: UIViewController {
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = 2
         
-        kronorLabel.text = formatter.string(from: kronor as NSNumber)
+        kronorField.text = formatter.string(from: kronor as NSNumber)
+    }
+    
+    func calculateDollarCurrency(using textfield: UITextField) {
+        guard let valueString = textfield.text else {
+            dollarField.text = "0"
+            return
+        }
+        
+        let cleanedString = valueString.replacingOccurrences(of: ",", with: ".")
+        
+        guard let kronor = Double(cleanedString) else {
+            dollarField.text = "0"
+            return
+        }
+        
+        let dollars = kronor / currencyRate
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        
+        dollarField.text = formatter.string(from: dollars as NSNumber)
     }
     
     func updateCompletion(_ error: String?) {
