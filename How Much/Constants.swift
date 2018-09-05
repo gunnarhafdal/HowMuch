@@ -112,7 +112,8 @@ var currencies: [(title: String, currencies: [(code: String, name: String)])] = 
         ("ILS", "Israeli New Sheqel"),
         ("INR", "Indian Rupee"),
         ("IQD", "Iraqi Dinar"),
-        ("IRR", "Iranian Rial")
+        ("IRR", "Iranian Rial"),
+        ("ISK", "Icelandic Króna")
         ]
     ),
     ("J", [
