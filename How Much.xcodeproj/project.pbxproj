@@ -161,9 +161,11 @@
 				TargetAttributes = {
 					F731D56B20EA1DAC0081B66C = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					F731D57F20EA1DAD0081B66C = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = F731D56B20EA1DAC0081B66C;
 					};
 				};
@@ -388,7 +390,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gunnarhafdal.howmuch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -407,7 +409,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gunnarhafdal.howmuch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -427,7 +429,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gunnarhafdal.How-Much-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Much.app/How Much";
 			};
@@ -448,7 +450,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gunnarhafdal.How-Much-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Much.app/How Much";
 			};
