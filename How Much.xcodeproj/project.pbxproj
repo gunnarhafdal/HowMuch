@@ -161,11 +161,11 @@
 				TargetAttributes = {
 					F731D56B20EA1DAC0081B66C = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 					};
 					F731D57F20EA1DAD0081B66C = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						TestTargetID = F731D56B20EA1DAC0081B66C;
 					};
 				};
@@ -390,7 +390,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = si.gunn.howmuch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -409,7 +409,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = si.gunn.howmuch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -420,7 +420,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UVHABKE54T;
+				DEVELOPMENT_TEAM = AF8V7Y8FA8;
 				INFOPLIST_FILE = "How MuchTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -429,7 +429,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gunnarhafdal.How-Much-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Much.app/How Much";
 			};
@@ -441,7 +441,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UVHABKE54T;
+				DEVELOPMENT_TEAM = AF8V7Y8FA8;
 				INFOPLIST_FILE = "How MuchTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,7 +450,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gunnarhafdal.How-Much-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/How Much.app/How Much";
 			};
