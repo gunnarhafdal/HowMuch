@@ -10,9 +10,7 @@ import Foundation
 
 struct Valuta {
     
-    let apiBase = "https://www.alphavantage.co"
-    let apiKey = "GBJIFQOH76BTIT9Y"
-    let apiFunction = "CURRENCY_EXCHANGE_RATE"
+    let apiEndpoint = "https://api.exchangeratesapi.io/latest"
     
     func update(forceUpdate: Bool = false, completion: ((_ error: String?)->())? = nil) {
         let defaults = UserDefaults.standard
@@ -20,6 +18,11 @@ struct Valuta {
         
         let timeNow = Date().timeIntervalSince1970 as Double
         
+        // TODO: Make it update instead after 18 UTC the day after last update or 24 hours max
+        /*
+         * So if we last updated at 21 GMT yesterday but it's now 19 GMT then lets update since
+         * the ECB would have update the rates.
+         */
         guard forceUpdate == true || timeNow - lastUpdated > 10800 else { // 3 hours cache
             completion?(nil) //we run the completion if the data is cached
             return
@@ -34,8 +37,6 @@ struct Valuta {
             completion?("Cannot get to currency")
             return
         }
-        
-        let apiEndpoint: String = "\(apiBase)/query?function=\(apiFunction)&from_currency=\(fromCurrency)&to_currency=\(toCurrency)&apikey=\(apiKey)"
         
         guard let url = URL(string: apiEndpoint) else {
             completion?("Cannot create URL")
@@ -69,22 +70,24 @@ struct Valuta {
                         return
                 }
                 
-                guard let resultObject = resultJSON["Realtime Currency Exchange Rate"] as? [String: Any] else {
+                guard let ratesObject = resultJSON["rates"] as? [String: Double] else {
                     completion?("JSON data not in right format")
                     return
                 }
                 
-                guard let rate = resultObject["5. Exchange Rate"] as? String else {
-                    completion?("Currency rate data missing from JSON")
+                guard let fromRate = fromCurrency == "EUR" ? 1.0 : ratesObject[fromCurrency] else {
+                    completion?("Currency fromRate data missing from JSON")
                     return
                 }
                 
-                guard let rateDouble = Double(rate) else {
-                    completion?("Couldn't convert currency rate data to a number")
+                guard let toRate = toCurrency == "EUR" ? 1.0 : ratesObject[toCurrency] else {
+                    completion?("Currency toRate data missing from JSON")
                     return
                 }
                 
-                defaults.set(rateDouble, forKey: defaultsKeys.currencyRate)
+                let currencyRate = (1.0/fromRate) * toRate
+                
+                defaults.set(currencyRate, forKey: defaultsKeys.currencyRate)
                 
                 // we store the time now to check for updating last time
                 let now = Date()

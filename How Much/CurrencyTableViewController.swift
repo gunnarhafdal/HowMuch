@@ -63,8 +63,6 @@ extension CurrencyTableViewController: UITableViewDelegate, UITableViewDataSourc
         switch section {
         case 0:
             return "Current selection"
-        case 1:
-            return "Popular"
         default:
             return currencies[section].title
         }
